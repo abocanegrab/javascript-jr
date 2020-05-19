@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 02</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function suma(a, b) {
+        return a + b;
+    }
+
+    console.log(suma(7, 9));
+
+    var operaSuma = function (a, b) {
+        return a + b;
+    }
+
+    console.log(operaSuma(10, 5));
+
+    //Closures
+    function calculadora(a, b) {
+        var operacion = {
+            suma: function () {
+                return a + b;
+            },
+            resta: function () {
+                return a - b;
+            },
+            multiplica: function () {
+                return a * b;
+            },
+            dividir: function () {
+                return a / b;
+            }
+        }
+        return operacion;
+    }
+
+    console.log(calculadora(10, 4).suma());
+    console.log(calculadora(10, 4).resta());
+    console.log(calculadora(10, 4).dividir());
+
+    //Call, Apply 
+    console.log(window);
+    console.log(this);
+    console.log(this == window);
+
+    var mensajeError = "No se completaron los datos";
+    console.log(this.mensajeError);
+
+    var objExito = {
+        titulo: "Éxito",
+        mensajeError: "Se completó la información"
+    };
+    var objAlerta = {
+        titulo: "Alerta",
+        mensajeError: "Revise la información"
+    };
+    var objError = {
+        titulo: "Error",
+        mensajeError: "Se produjo un error"
+    };
+
+    function mostrarAlerta(nombre) {
+        alert(nombre + ": \n" + this.titulo + " -> " + this.mensajeError);
+    }
+
+    // mostrarAlerta.call(objAlerta,"Pepe");
+    // mostrarAlerta.apply(objAlerta,["Pepe"]);
+
+
+    //Objetos
+    var Cliente = {
+        nombre: 'Juan Manuel',
+        apellidoPaterno: 'Mendoza',
+        apellidoMaterno: 'Perez',
+        esCasado: false,
+        anioServicio: [2016, 2017, 2018, 2019, 2020],
+        lineas: ['980190290', '9000099', '98796657'],
+        auto: {
+            marca: 'Toyota',
+            modelo: 'Yaris',
+            anio: 2018
+        }
+    }
+
+    console.log(Cliente.nombre);
+    console.log(Cliente["esCasado"]);
+    console.log(Cliente.anioServicio);
+    console.log(Cliente.anioServicio[2]);
+    console.log(Cliente.auto.marca);
+
+    console.log(typeof (Cliente));
+
+    console.log(Cliente.hasOwnProperty("esCasado"));
+
+    console.log(Cliente.hasOwnProperty("auto2"));
+
+    console.log(Object.keys(Cliente));
+    console.log(Object.values(Cliente));
+
+    //Get y Set
+    var Producto = {
+        nombre: "",
+        _stock: 0,
+        get stock() {
+            return "El stock actual es:" + this._stock;
+        },
+        set stock(value) {
+            if (value < 0)
+                this._stock = 0;
+            else this._stock = value;
+        }
+    };
+
+    console.log(Producto.stock);
+    Producto.stock = -20;
+    console.log(Producto.stock);
+
+    //Prototipos
+    Date.prototype.mensajePersonalizado = function(){
+        return "Mi mensaje";
+    }
+    
+    var fecha = new Date();
+    console.log(fecha);
+    console.log(fecha.mensajePersonalizado());
+
+
+
+
+
+
+
+
+</script>
+
+</html>

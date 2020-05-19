@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 04</title>
+</head>
+
+<body>
+    <input type="text" onkeyup="filtrar(event)">
+    <br>
+    <p id="Resultado"></p>
+
+</body>
+<script>
+    var diasSemana = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado"];
+
+    function filtrar(e) {
+        let valor = e.target.value;
+        let filtroDias = diasSemana.filter(x => x.toUpperCase().includes(valor.toUpperCase()));
+        pintar(filtroDias);
+    }
+
+
+    function pintar(list) {
+        let resultados = document.getElementById("Resultado");
+        resultados.innerHTML = "";
+        for (item of list) {
+            resultados.innerHTML += `${item} <br />`;
+        }
+    }
+
+    window.onload = function () {
+        pintar(diasSemana);
+    }
+
+
+
+
+
+    // console.log(diasSemana);
+    // console.log(diasSemana.length);
+    // console.log(diasSemana[4]);
+
+    // diasSemana.push("Sabado");
+    // console.log(diasSemana);
+    // console.log(diasSemana.length);
+
+    // diasSemana.unshift("Domingo");
+    // console.log(diasSemana);
+    // console.log(diasSemana.length);
+
+    // diasSemana.shift();
+    // console.log(diasSemana);
+    // console.log(diasSemana.length);
+
+    // diasSemana.pop();
+    // console.log(diasSemana);
+    // console.log(diasSemana.length);
+
+    // console.log(diasSemana.indexOf("Martes"));
+
+    // console.log(diasSemana.sort());
+
+    // diasSemana.forEach(x=>{
+    //     console.log(x);
+    // });
+
+
+</script>
+
+</html>

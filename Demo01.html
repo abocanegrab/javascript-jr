@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 01</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    //Variables
+    var nombre = "Carlos";
+    console.log(nombre);
+    console.log(300);
+
+    let nombre2 = "Pepe";
+    console.log(nombre2);
+    console.log(window);
+
+    //Variable Let
+    function imprimeNumeros() {
+        for (let i = 0; i < 30; i++) {
+            let nombreAleatorio = "Usuario" + i;
+            console.log(i);
+        }
+    }
+    imprimeNumeros();
+
+    //Operadores = +=
+    var numero1 = 90;
+    var numero2 = 80;
+
+    //numero1 = numero1 + numero2;
+    numero1 += numero2;
+    numero1 -= numero2;
+    numero1 *= numero2;
+    numero1 /= numero2;
+    console.log(numero1);
+
+    numero1 = numero1 + 1;
+    numero1++;
+
+    console.log(nombre + " " + nombre2);
+
+    //Tipos de Datos
+    var decimal = 90.50;
+    console.log(decimal);
+    var existe = true;
+    console.log(existe);
+    var noexiste = false;
+    console.log(noexiste);
+
+    var objUsuario = {
+        nombre: 'Carlos',
+        edad: 32,
+        correo: 'carlos@aaron.com'
+    }
+
+    console.log(objUsuario);
+
+    console.table(objUsuario);
+
+
+    var lista = ["Domingo","Lunes","Martes"];
+    console.log(lista);
+    console.table(lista);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>

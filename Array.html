@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" onkeyup="filtrar(event)">
+    <label id="Resultados">
+
+    </label>
+</body>
+<script>
+    var lista = ["Jorge", "Luis", "Antonio", "Maria", "Miguel", "Rogelio", "Ana"];
+    
+    function filtrar(event) {
+        let valor = event.target.value;
+        let listaTmp = lista.filter(x => x.toUpperCase().includes(valor.toUpperCase()));
+        pintar(listaTmp);
+    }
+
+    function pintar(list) {
+        let html = "";
+        list.forEach(item => {
+            html += `<p>${item}</p>`;
+        });
+        document.getElementById("Resultados").innerHTML = html;
+
+    }
+
+    window.onload = function () {
+        pintar(lista);
+    }
+
+</script>
+
+</html>

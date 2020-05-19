@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 03</title>
+</head>
+
+<body style="padding-left:60px">
+    <button onclick="saludar()">Saludame</button>
+    <br />
+    <br />
+    <div id="parte1">
+        <input type="text" onkeydown="agregaLog('keyDown',event)" onkeypress="agregaLog('keyPress',event)"
+            onkeyup="agregaLog('keyUp',event)" />
+        <br />
+        <br />
+        <p style="display:block; margin-left:100px;" id="Resultado"></p>
+    </div>
+    <div id="parte2">
+        <br />
+        <br />
+        <h1>Corte de cadenas</h1>
+        <input type="text" onkeyup="cortaCadena(event)">
+        <br />
+        <p></p>
+    </div>
+
+    <div id="parte3">
+        <br>
+        <br>
+        <h1>Comparación de cadenas</h1>
+        <label>Ingresar Contraseña</label>
+        <input id="clave" type="password" onkeyup="validaCadena()">
+        <br>
+        <label>Repetir Contraseña</label>
+        <input id="validaClave" type="password" onkeyup="validaCadena()">
+        <br>
+        <p></p>
+        <button>Guardar</button>
+    </div>
+
+</body>
+<script>
+    function saludar() {
+        alert("Bienvenido");
+    }
+
+    function agregaLog(valor, event) {
+        let input = event.target.value;
+        //document.getElementById("Resultado").innerHTML += valor + "-> " + input + " <br />";
+        document.getElementById("Resultado").innerHTML += `El "evento" fue: ${valor} , 'valor': ${input} <br />`;
+
+    }
+
+    var textoLargo = "Este es un texto largo " +
+        "para explicar el ejemplo de cadenas de texto " +
+        "del curso de Javascript.";
+
+    var textoLargo2 = "Este es un texto largo \
+    para explicar el ejemplo de cadenas de texto \
+    del curso de Javascript";
+
+    function cortaCadena(e) {
+        if (e.keyCode == 13) {
+            let valor = e.target.value;
+            for (let caracter of valor) {
+                document.querySelector("#parte2 p").innerHTML += `${caracter} <br />`;
+            }
+        }
+    }
+
+    function validaCadena() {
+        // debugger
+        let clave = document.querySelector("#parte3 #clave").value;
+        let validacion = document.getElementById("validaClave").value;
+
+        let mensaje = document.querySelector("#parte3 p");
+        if (clave == "" && validacion == "") {
+            mensaje.innerHTML = "";
+            document.querySelector("#parte3 button").disabled = true;
+        }
+        else if (clave === validacion) {
+            mensaje.innerHTML = "Las claves coinciden";
+            document.querySelector("#parte3 button").disabled = false;
+        }
+        else if (clave !== validacion) {
+            mensaje.innerHTML = "Las claves NO coinciden";
+            document.querySelector("#parte3 button").disabled = true;
+        }
+    }
+
+    var texto = "100";
+    var numero = 100;
+    console.log(texto == numero);
+
+
+    //SPLIT CADENAS
+    //Nombre | Apellido | Edad | DNI | Saldo | activo
+    var texto = "Jose|Perez|85|43498990|9800.89|1";
+
+    function conviertePersona(val) {
+        let partes = val.split("|");
+        let objPersona = {
+            nombres: partes[0].toUpperCase(),
+            apellidos: partes[1].toUpperCase(),
+            edad: parseInt(partes[2]),
+            DNI: partes[3],
+            saldo: parseFloat(partes[4]),
+            activo: Boolean(partes[5])
+        }
+        return objPersona;
+    }
+    var Persona = conviertePersona(texto);
+    console.table(Persona);
+
+
+    //Números
+    console.log(Number.isInteger(190));
+
+
+    console.log(parseInt("300"));
+
+    function convierteNumero(val){
+        let resultado = parseInt(val);
+        if(isNaN(resultado)){
+            console.log("No es un numero valido");
+        }
+        else
+        console.log(resultado);
+    }
+    
+
+
+
+
+
+
+</script>
+
+</html>

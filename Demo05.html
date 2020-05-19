@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 05</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var fecha = new Date();
+    console.log(fecha);
+
+    var fechaActual = new Date("2020-05-10");
+    console.log(fecha);
+    //Nos genera con una día anterior
+    //Por el GTM-5 de la hora
+
+    var fechaActual = new Date("2020-05-10T00:00");
+    console.log(fecha);
+    //genera una fecha con el día actual
+
+    var fechaActual = new Date(2020, 05, 10);
+    console.log(fecha);
+    //Toma el siguiente mes
+    //Javascript inicia con el mes 0 => Enero , 11=>Diciembre
+    var fechaActual = new Date(2020, 4, 10);
+    console.log(fecha);
+
+    //Formatos
+    var fechaActual = new Date("2020-05-10T14:15");
+    document.writeln(fechaActual + "<br>");
+    document.writeln(fechaActual.toString() + "<br>");
+    document.writeln(fechaActual.toLocaleDateString() + "<br>");
+    document.writeln(fechaActual.toLocaleTimeString() + "<br>");
+
+    document.writeln(fechaActual.toLocaleDateString("es-PE") + "<br>");
+    document.writeln(fechaActual.toLocaleDateString("ar-EG") + "<br>");
+    document.writeln(fechaActual.toLocaleDateString("ko-KR") + "<br>");
+
+    var optionsDate = {
+        year: 'numeric',
+        month: 'long',
+        day: '2-digit'
+    };
+    document.writeln(fechaActual.toLocaleDateString("es-PE", optionsDate) + "<br>");
+
+    var optionsTime = {
+        hour: '2-digit',
+        minute: '2-digit'
+    };
+    document.writeln(fechaActual.toLocaleTimeString("es-PE", optionsTime) + "<br>");
+
+    var optionsDateTime = {
+        year: 'numeric',
+        month: 'long',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit'
+    };
+    document.writeln(fechaActual.toLocaleDateString("es-PE", optionsDateTime) + "<br>");
+
+
+    document.writeln(Math.PI + "<br>");
+    document.writeln(Math.PI + "<br>");
+    document.writeln(Math.sign(-90) + "<br>");
+    document.writeln(Math.random() + "<br>");
+
+    var numero = 80.9456
+    Math.ceil(numero)
+    Math.floor(numero)
+    Math.fround(numero)
+    Math.round(numero)
+    numero = 80.1989808089
+    Math.round(numero)
+    Math.trunc(numero)
+
+
+
+</script>
+
+</html>

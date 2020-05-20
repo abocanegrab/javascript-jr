@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 08</title>
+</head>
+
+<body>
+    <form>
+        <label>Ingresar Correo Electrónico:</label>
+        <input type="text" id="txtCorreo" onkeyup="validar(event,'correo')">
+        <br>
+        <label>Ingresar Edad:</label>
+        <input type="text" id="intEdad" onkeyup="validar(event,'entero')">
+        <br>
+        <label>Ingresar Talla:</label>
+        <input type="text" id="intTalla" onkeyup="validar(event,'decimal')">
+        <br>
+
+    </form>
+
+</body>
+<script>
+
+    //REGEX
+    function validarCorreo(e) {
+        let patron = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+        console.log("Correo", e.target.value.search(patron));
+    }
+    function validarEdad(e) {
+        let patron = /^[1-9]\d*$/;
+        console.log("Edad", e.target.value.search(patron));
+    }
+    function validarTalla(e) {
+        let patron = /^[0-9]\d*(\.\d+)?$/;
+        console.log("Talla", e.target.value.search(patron));
+    }
+    function validar(e, tipo) {
+        let patron;
+        switch (tipo) {
+            case 'correo': patron = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/; break;
+            case 'entero': patron = /^[1-9]\d*$/; break;
+            case 'decimal': patron = /^[0-9]\d*(\.\d+)?$/; break;
+        }
+        console.log(tipo, e.target.value.search(patron));
+    }
+
+
+    //HOISTING
+
+
+    function sumar(a, b) {
+        console.log(a + b);
+    }
+
+    sumar(5, 10);
+
+    //DICE
+    console.log(edad);
+    var edad = 90;
+    console.log(edad);
+
+    //QUIERE DECIR
+    var edad;
+    console.log(edad);
+    edad = 90;
+    console.log(edad);
+
+    //DICE
+    function pintarNumeros() {
+        var texto = "El numero es: ";
+        for (let i = 0; i < 5; i++) {
+            var texto = "El valor es: ";
+            console.log(texto + i);
+        }
+        console.log(texto);
+    }
+
+    //QUIERE DECIR
+    function pintarNumeros() {
+        var texto = "El numero es: ";
+        var texto = "El valor es: ";
+        for (let i = 0; i < 5; i++) {
+            console.log(texto + i);
+        }
+        console.log(texto);
+    }
+
+    //LET DECIR
+    function pintarNumeros2() {
+        var texto = "El numero es: ";
+        for (let i = 0; i < 5; i++) {
+            let texto = "El valor es: ";
+            console.log(texto + i);
+        }
+        console.log(texto);
+    }
+
+    numero=120;
+    console.log(numero);
+
+
+</script>
+
+</html>

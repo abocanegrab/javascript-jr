@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 09</title>
+</head>
+
+<body>
+    <section>
+        <label>Pais:</label>
+        <input type="text" name="txtPais" id="txtPais">
+        <br>
+        <label for="">Cliente:</label>
+        <input type="text" name="txtCliente" id="txtCliente">
+        <br>
+        <label>Año de Contrato:</label>
+        <input type="text" name="txtAnio" id="txtAnio">
+        <br>
+        <br>
+        <button onclick="enviarCliente()">Enviar</button>
+    </section>
+</body>
+<script>
+
+    function enviarCliente() {
+        //debugger
+        let formulario = new FormData();
+        formulario.append("txtPais", document.getElementById("txtPais").value);
+        formulario.append("txtCliente", document.getElementById("txtCliente").value);
+        formulario.append("txtAnio", document.getElementById("txtAnio").value);
+
+        let request = new XMLHttpRequest();
+        request.open("POST", "/Controlares/Cliente/Guardar", true);
+        request.onloadstart = function(){
+            //Levante un modal o mensaje    
+        };
+        request.onreadystatechange = function(){
+            if(request.readyState === 4 && request.status===200){
+                pintarResultado(request.response);
+            }
+        }
+
+        request.send(formulario);
+
+    }
+
+    function pintarResultado(response){
+       if(response.succes){
+           alert("Se grabó correctamente");
+       }
+       else{
+           alert("No se proceso el pedido");
+           console.log(response.mensaje);
+       }
+    }
+
+
+
+
+</script>
+
+</html>

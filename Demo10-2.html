@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <main>
+        <div id="frmPersona" class="formulario">
+            <div class="group">
+                <label>Nombres</label>
+                <input class="required" type="text" id="txtNombres" maxlength="50" data-tipo="cadena">
+                <i></i>
+            </div>
+            <div class="group">
+                <label>Apellidos</label>
+                <input class="" type="text" id="txtApellidos" maxlength="50" data-tipo="cadena">
+                <i></i>
+            </div>
+            <div class="group">
+                <label>Edad</label>
+                <input class="required" type="text" id="txtEdad" maxlength="3" data-tipo="numero">
+                <i></i>
+            </div>
+            <br>
+            <button id="btnGuardar">Guardar</button>
+        </div>
+        </div>
+        <div class="resultados">
+            <table>
+                <thead>
+                    <tr>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Edad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+<script src="constants.js"></script>
+<script src="demo102.js"></script>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 09-2</title>
+</head>
+
+<body>
+    <button onclick="consultarServicio()">Traer informacion de Servicio</button>
+    <p id="mensaje"></p>
+</body>
+<script>
+    function consultarServicio() {
+        let request = new XMLHttpRequest();
+        request.open("GET", "data_ejemplo.json", true);
+        request.onloadstart = function () {
+            document.getElementById("mensaje").innerText = "Consultando al Servidor";
+        };
+        request.onreadystatechange = function () {
+            if (request.readyState === 4 && request.status === 200) {
+                document.getElementById("mensaje").innerText = "";
+                console.table(JSON.parse(request.responseText));
+            }
+        }
+        request.send();
+
+        var usuario = 'Maria';
+        var edad = 43;
+
+    }
+</script>
+
+</html>

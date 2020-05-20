@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 07</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //FOR
+    // for (let i = 0; i < 10; i++) {
+    //     document.write(`Valor :${i}   <br />`);
+    // }
+
+    let arreglo = ["Peru", "Argentina", "Brasil", "Ecuador", "Costa Rica"];
+    for (let i = 0; i < arreglo.length; i++) {
+        if (arreglo[i].toUpperCase().includes("E")) {
+            document.write(`País: ${arreglo[i]} <br />`);
+        }
+    }
+
+    //WHILE
+    let i = 10;
+    while (i < 10) {
+        document.write(`WHILE: ${i} <br>`);
+        i++;
+    }
+
+
+    //DO WHILE
+    i = 10;
+    do {
+        document.write(`Do While: ${i} <br>`);
+        i++;
+    } while (i < 10)
+
+    //SWITCH
+    i = 6;
+    switch (i) {
+        case 5: document.write("El valor es 5<br>"); break;
+        case 6: document.write("El valor es 6<br>"); break;
+        case 7: document.write("El valor es 7<br>"); break;
+        case 8: document.write("El valor es 8<br>"); break;
+        default: document.write("No cumple con ninguna condicion <br>");
+
+    }
+
+    //FOR CON ARREGLO
+    //let arreglo = ["Peru", "Argentina", "Brasil", "Ecuador", "Costa Rica"];
+    for (let i = 0; i < arreglo.length; i++) {
+        if (arreglo[i].toUpperCase().includes("BRASIL")) break;
+
+        else
+            document.write(`País: ${arreglo[i]} <br />`);
+    }
+
+
+    //FOR
+
+    var clientes = [
+        { id: 900, nombre: "Jose Luis", apellido: "Quijano" },
+        { id: 890, nombre: "Maria Antonia", apellido: "Rojas" },
+        { id: 56, nombre: "Miguel", apellido: "Quezada" }
+    ];
+    document.write("<br><br><br><br>");
+    //FOR IN
+    for(let cliente in clientes){
+        console.log(clientes[cliente]);
+    }    
+
+    //FOR OF
+    for(let cliente of clientes){
+        console.log(cliente);
+    } 
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>
